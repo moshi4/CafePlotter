@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "A tool for plotting CAFE5 gene family expansion/contraction result"
 authors = ["moshi4"]
 license = "MIT"
-repository = "https://github.com/moshi4/cafeplotter/"
+repository = "https://github.com/moshi4/CafePlotter/"
 readme = "README.md"
 keywords = [
     "bioinformatics",

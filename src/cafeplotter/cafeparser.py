@@ -270,7 +270,8 @@ class CafeTree(ParserBase):
         for tree in trees:
             for node in tree.find_clades():
                 node_name = str(node.name).replace("*", "")
-                taxonid, gene_count = node_name.split("_")
+                taxonid = "_".join(node_name.split("_")[0:-1])
+                gene_count = node_name.split("_")[-1]
                 node.name = self.rename_taxonid(taxonid)
                 node.confidence = gene_count
         self._trees = trees

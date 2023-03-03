@@ -1,0 +1,48 @@
+[tool.poetry]
+name = "cafeplotter"
+version = "0.1.0"
+description = "A tool for plotting CAFE5 gene family expansion/contraction result"
+authors = ["moshi4"]
+license = "MIT"
+repository = "https://github.com/moshi4/cafeplotter/"
+readme = "README.md"
+keywords = [
+    "bioinformatics",
+    "phylogenetics",
+    "molecular-evolution",
+    "visualization",
+    "matplotlib",
+]
+classifiers = [
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "Framework :: Matplotlib",
+]
+include = ["tests"]
+packages = [{include = "cafeplotter", from = "src"}]
+
+[tool.poetry.scripts]
+cafeplotter = "cafeplotter.scripts:cafeplotter.main"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "--cov=src --tb=line --cov-report=xml --cov-report=term"
+testpaths = ["tests"]
+
+[tool.poetry.dependencies]
+python = ">=3.8.1"
+matplotlib = ">=3.5.3"
+biopython = ">=1.80"
+numpy = ">=1.21.1"
+
+[tool.poetry.group.dev.dependencies]
+pytest = ">=7.2.1"
+black = ">=23.1.0"
+flake8 = ">=6.0.0"
+pydocstyle = ">=6.3.0"
+pytest-cov = ">=4.0.0"
+ipykernel = ">=6.21.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

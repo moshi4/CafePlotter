@@ -65,21 +65,6 @@ def run(
     tp.set_title("Summary of All Expansion/Contraction Gene Family")
     tp.savefig(all_gene_family_plot_file, dpi=dpi)
 
-    # Plot significant gene family expansion/contraction tree
-    signif_gene_family_plot_file = outdir / f"summary_significant_gene_family.{format}"
-    print("Plot Summary of Significant Expansion/Contraction Gene Family Tree:")
-    print(f" => `{signif_gene_family_plot_file}`\n")
-    tp = TreePlotter(cp.asr_trees[0], **tree_plot_props)
-    taxonid2total_increase = cp.get_taxonid2total_increase(only_signif=True)
-    taxonid2total_decrease = cp.get_taxonid2total_decrease(only_signif=True)
-    for taxonid in cp.taxonid_list:
-        total_increase = taxonid2total_increase[taxonid]
-        total_decrease = taxonid2total_decrease[taxonid]
-        label = f"+{total_increase} / {total_decrease}"
-        tp.text_on_node(taxonid, label, size=count_label_size)
-    tp.set_title("Summary of Significant Expansion/Contraction Gene Family")
-    tp.savefig(signif_gene_family_plot_file, dpi=dpi)
-
     # Plot each gene family expansion/contraction tree
     gene_family_outdir = outdir / "gene_family"
     gene_family_outdir.mkdir(exist_ok=True)

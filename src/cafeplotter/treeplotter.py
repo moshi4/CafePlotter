@@ -170,7 +170,7 @@ class TreePlotter:
     def update_plot_props(
         self,
         *,
-        tree_line_kws: dict[str, Any] = {},
+        tree_line_kws: dict[str, Any] | None = None,
     ) -> None:
         """Update plot properties
 
@@ -179,6 +179,7 @@ class TreePlotter:
         tree_line_kws : dict[str, Any], optional
             Axes.plot properties (e.g. `dict(color="red", lw=0.5, ...)`)
         """
+        tree_line_kws = {} if tree_line_kws is None else tree_line_kws
         self._tree_line_kws.update(tree_line_kws)
 
     def highlight(self, node_names: list[str], color: str, **kwargs) -> None:
@@ -332,7 +333,7 @@ class TreePlotter:
                 label_size = self._innode_label_size
             if label_size > 0:
                 text_kws = dict(size=label_size, ha="left", va="center")
-                ax.text(x + margin, y, s=node.name, **text_kws)
+                ax.text(x + margin, y, s=str(node.name), **text_kws)  # type: ignore
 
         # Plot all patches
         for patch in self._get_plot_patches():

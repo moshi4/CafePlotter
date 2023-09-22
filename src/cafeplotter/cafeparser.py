@@ -33,11 +33,11 @@ class CafeParser:
         self.check_family_id_duplication()
 
         # Parse CAFE5 result files
-        self.famid2asr_tree
-        self.famid2branch_prob
-        self.famid2family_change
-        self.famid2family_count
-        self.famid2family_result
+        _ = self.famid2asr_tree
+        _ = self.famid2branch_prob
+        _ = self.famid2family_change
+        _ = self.famid2family_count
+        _ = self.famid2family_result
 
     ############################################################
     # CAFE Ouput File Path

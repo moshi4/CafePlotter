@@ -44,7 +44,7 @@ def run(
     cp.write_result_summary(cafe_result_summary_file)
 
     # Set general gene family tree plot properties
-    tree_plot_props = dict(
+    tree_plot_props: dict = dict(
         height=fig_height,
         width=fig_width,
         leaf_label_size=leaf_label_size,

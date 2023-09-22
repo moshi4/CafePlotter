@@ -1,21 +1,7 @@
 import subprocess as sp
 from pathlib import Path
 
-import pytest
-
 from cafeplotter import __version__
-
-
-@pytest.fixture
-def cafe_base_result_dir() -> Path:
-    testdata_dir = Path(__file__).parent / "testdata"
-    return testdata_dir / "singlelambda"
-
-
-@pytest.fixture
-def cafe_gamma_result_dir() -> Path:
-    testdata_dir = Path(__file__).parent / "testdata"
-    return testdata_dir / "gamma_dist"
 
 
 def test_cli_base_run(cafe_base_result_dir: Path, tmp_path: Path):

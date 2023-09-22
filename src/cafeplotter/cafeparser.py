@@ -173,6 +173,36 @@ class CafeParser:
         """Taxonid list"""
         return [cr.taxonid for cr in self.clade_results]
 
+    def write_result_summary(self, outfile: str | Path) -> None:
+        """Write result summary
+
+        Table of gene counts, changes, and expansion/contraction p-values
+        for each family and taxon.
+
+        Parameters
+        ----------
+        outfile : str | Path
+            Result summary file
+        """
+        result_summary_content = "FamilyID\tTaxonID\tCount\tChange\tPvalue\n"
+        for famid in self.signif_famid_list:
+            taxonid2count = self.famid2family_count[famid].taxonid2count
+            taxonid2change = self.famid2family_change[famid].taxonid2change
+            taxonid2prob = self.famid2branch_prob[famid].taxonid2prob
+
+            for taxonid in self.taxonid_list:
+                row_values = []
+                row_values.append(famid)
+                row_values.append(taxonid)
+                row_values.append(str(taxonid2count[taxonid]))
+                row_values.append(str(taxonid2change[taxonid]))
+                row_values.append(str(taxonid2prob[taxonid]))
+
+                result_summary_content += "\t".join(row_values) + "\n"
+
+        with open(outfile, "w") as f:
+            f.write(result_summary_content)
+
     def get_taxonid2total_increase(self, only_signif: bool = False) -> dict[str, int]:
         """Get taxonid & total gene family increase dict
 

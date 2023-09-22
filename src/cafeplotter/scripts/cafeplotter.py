@@ -33,10 +33,17 @@ def run(
     contraction_color: str = "blue",
     dpi: int = 300,
 ) -> None:
-    """Plot CAFE5 gene family expansion/extraction result"""
+    """Plot CAFE5 gene family expansion/contraction result"""
     # Parse CAFE5 output result
     print("\nParsing CAFE5 result files...\n")
     cp = CafeParser(indir)
+    outdir.mkdir(exist_ok=True)
+
+    # Output CAFE5 gene expansion/contraction result summary for each family and taxon.
+    cafe_result_summary_file = outdir / "result_summary.tsv"
+    print("Write expansion/contraction result summary for each family and taxon:")
+    print(f" => `{cafe_result_summary_file}`\n")
+    cp.write_result_summary(cafe_result_summary_file)
 
     # Set general gene family tree plot properties
     tree_plot_props = dict(
@@ -48,10 +55,9 @@ def run(
     )
 
     # Plot all gene family expansion/contraction tree
-    outdir.mkdir(exist_ok=True)
     all_gene_family_plot_file = outdir / f"summary_all_gene_family.{format}"
     print("Plot Summary of All Expansion/Contraction Gene Family Tree:")
-    print(f" => `{all_gene_family_plot_file}`")
+    print(f" => `{all_gene_family_plot_file}`\n")
     tp = TreePlotter(cp.asr_trees[0], **tree_plot_props)
     for clade_result in cp.clade_results:
         label = f"{clade_result.increase_label} / {clade_result.decrease_label}"

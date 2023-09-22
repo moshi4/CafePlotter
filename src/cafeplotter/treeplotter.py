@@ -362,13 +362,16 @@ class TreePlotter:
         pad_inches : float, optional
             Padding inches
         """
-        figure = self.plotfig(dpi=dpi)
-        figure.savefig(
-            fname=savefile,
+        fig = self.plotfig(dpi=dpi)
+        fig.savefig(
+            fname=str(savefile),
             dpi=dpi,
             pad_inches=pad_inches,
             bbox_inches="tight",
         )
+        # Clear & close figure to suppress memory leak
+        fig.clear()
+        plt.close(fig)
 
     ############################################################
     # Private Method

@@ -3,8 +3,6 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-import matplotlib.pyplot as plt
-
 import cafeplotter
 from cafeplotter import CafeParser, TreePlotter
 
@@ -110,11 +108,6 @@ def run(
             x=max(tp.xlim), y=min(tp.ylim), s=signif_label, size=7, va="top", ha="right"
         )
         tp.savefig(gene_family_plot_file, dpi=dpi)
-
-        # ***** Call plt.close() to avoid warning below ****
-        # Figures created through the pyplot interface are retained
-        # until explicitly closed and may consume too much memory
-        plt.close()
 
 
 def make_gene_count_label(gene_count: int, branch_prob: float | None) -> str:

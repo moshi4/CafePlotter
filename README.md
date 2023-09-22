@@ -64,17 +64,15 @@ User can download example dataset ([singlelambda.zip](https://github.com/moshi4/
 
 ## Output Contents
 
-- `summary_all_gene_family.[png|jpg|svg|pdf]`  
-  Summary of all expansion/contraction gene family result
+- **summary_all_gene_family.[png|jpg|svg|pdf]**  
+  Summary of all expansion/contraction gene family result (from `*_clade_result.txt`)
 
   ![summary_all_gene_family.png](https://raw.githubusercontent.com/moshi4/CafePlotter/main/examples/images/summary_all_gene_family.png)
 
-- `summary_significant_gene_family.[png|jpg|svg|pdf]`  
-  Summary of significant expansion/contraction gene family result
-
-  ![summary_significant_gene_family.png](https://raw.githubusercontent.com/moshi4/CafePlotter/main/examples/images/summary_significant_gene_family.png)
-
-- `gene_family/{FamilyID}_gene_family.[png|jpg|svg|pdf]`  
-  Significant :red_circle:expansion/:large_blue_circle:contraction gene family result  
+- **gene_family/{FamilyID}_gene_family.[png|jpg|svg|pdf]**  
+  Significant expansion(*red*)/contraction(*blue*) gene family result  
 
   ![gene_family.png](https://raw.githubusercontent.com/moshi4/CafePlotter/main/examples/images/gene_family/2_gene_family.png)
+
+- **result_summary.tsv** ([example](https://github.com/moshi4/CafePlotter/blob/main/examples/result_summary.tsv))  
+  Significant expansion/contraction result summary for each family and taxon

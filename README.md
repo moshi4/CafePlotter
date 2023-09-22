@@ -74,5 +74,5 @@ User can download example dataset ([singlelambda.zip](https://github.com/moshi4/
 
   ![gene_family.png](https://raw.githubusercontent.com/moshi4/CafePlotter/main/examples/images/gene_family/2_gene_family.png)
 
-- **result_summary.tsv** ([example](https://github.com/moshi4/CafePlotter/blob/main/examples/result_summary.tsv))  
+- **result_summary.tsv** ([example](https://raw.githubusercontent.com/moshi4/CafePlotter/main/examples/result_summary.tsv))  
   Significant expansion/contraction result summary for each family and taxon

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "cafeplotter"
-version = "0.1.1"
+version = "0.2.0"
 description = "A tool for plotting CAFE5 gene family expansion/contraction result"
 authors = ["moshi4"]
 license = "MIT"
